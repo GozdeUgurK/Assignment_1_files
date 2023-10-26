@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gözde Uğur">
+<meta name="dcterms.date" content="2023-10-26">
+
+<title>Assignment 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Assignment_1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Assignment_1_files/libs/quarto-html/quarto.js"></script>
+<script src="Assignment_1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Assignment_1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Assignment_1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Assignment_1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Assignment_1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Assignment_1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Assignment_1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Assignment_1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gözde Uğur </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 26, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="about-me" class="level2">
+<h2 class="anchored" data-anchor-id="about-me">1.1 About Me</h2>
+<p>I’m <strong>Gözde Uğur</strong>. I’ve been working as Senior Data Analyst at Trendyol for almost 2 years. Since graduating from university, I have worked in various data analyst roles where I mainly used SQL. I want to make sophisticated analyzes and visualizations of data with what I learned in this program. You can check <a href="https://www.linkedin.com/in/gozde-ugur-000/">My Linkedin Page</a> for further info.</p>
+</section>
+<section id="bridging-the-gap-between-sql-and-r" class="level2">
+<h2 class="anchored" data-anchor-id="bridging-the-gap-between-sql-and-r">1.2 Bridging the Gap between SQL and R</h2>
+<div style="text-align: center;">
+<iframe width="650" height="350" src="https://www.youtube.com/embed/JwP5KdWSgqE" frameborder="0" allowfullscreen="" style="display: inline-block;">
+</iframe>
+</div>
+<p>The reason I chose this video called <a href="https://www.youtube.com/watch?v=JwP5KdWSgqE&amp;list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&amp;t=1094s"><em>Bridging the Gap between SQL and R</em></a> was that I was curious about ways to use SQL, which I use frequently in daily life, in R. In this video, I learned an R package, tidyquery, with which I can run SQL Queries directly.</p>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">1.3 Dataset</h2>
+<section id="amazon-products-dataset-2023" class="level3">
+<h3 class="anchored" data-anchor-id="amazon-products-dataset-2023">Amazon Products Dataset 2023</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using read.csv()</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>myData <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"/Users/gozde.ugur/Downloads/archive (3)/amazon_products.csv"</span>) </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>en_cok_satanlar <span class="ot">&lt;-</span> myData <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(boughtInLastMonth)) <span class="sc">%&gt;%</span>  <span class="co"># satisadedi sütununa göre azalan sırada sırala</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)  <span class="co"># İlk 5 kaydı getirilk_5_kayit &lt;- head(myData, 5)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Show only selected columns</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>secilen_sutunlar <span class="ot">&lt;-</span> en_cok_satanlar[, <span class="fu">c</span>(<span class="st">"title"</span>,<span class="st">"stars"</span>, <span class="st">"price"</span> ,<span class="st">"boughtInLastMonth"</span>)]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(secilen_sutunlar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                                                                                                                                            title
+1                                                                                                        Bounty Quick Size Paper Towels, White, 8 Family Rolls = 20 Regular Rolls
+2                                            Amazon Brand - Presto! Flex-a-Size Paper Towels, 158 Sheet Huge Roll, 12 Rolls (2 Packs of 6), Equivalent to 38 Regular Rolls, White
+3                                                                                                             Stardrops - The Pink Stuff - The Miracle All Purpose Cleaning Paste
+4                                                                              Amazon Basics 2-Ply Paper Towels, Flex-Sheets, 150 Sheets per Roll, 12 Rolls (2 Packs of 6), White
+5 Hismile v34 Colour Corrector, Tooth Stain Removal, Teeth Whitening Booster, Purple Toothpaste, Colour Correcting, Hismile V34, Hismile Colour Corrector, Tooth Colour Corrector
+  stars price boughtInLastMonth
+1   4.8 24.42            100000
+2   4.7 28.28            100000
+3   4.4  4.99            100000
+4   4.2 22.86            100000
+5   3.4 20.69            100000</code></pre>
+</div>
+</div>
+<p>Since I work in the e-commerce industry, <a href="https://www.kaggle.com/datasets/asaniczka/amazon-products-dataset-2023-1-4m-products"><strong>Amazon Products Dataset 2023</strong></a> attracted my attention. Reasons why I find this dataset useful for out course:</p>
+<p>1. We may have the opportunity to get more insight about the trends and behaviors in the e-commerce industry, where we are usually on the customer side.</p>
+<p>2. This dataset allows us to work with different data types such as boolean, integer, float and character.</p>
+<p>3. This dataset contains 1.4M records. Although we work with much larger datasets in real business life, working with this dataset can also be a good opportunity to learn and overcome the difficulties of large datasets.</p>
+</section>
+</section>
+<section id="r-posts-relevant-to-my-interests" class="level2">
+<h2 class="anchored" data-anchor-id="r-posts-relevant-to-my-interests">1.4 R posts relevant to my interests</h2>
+</section>
+<section id="r-histogram" class="level2">
+<h2 class="anchored" data-anchor-id="r-histogram">1.4.1 R Histogram</h2>
+<p>A histogram is like a bar chart as it uses bars of varying height to represent data distribution. However, in a histogram values are grouped into consecutive intervals called bins. In a Histogram, continuous values are grouped and displayed in these bins whose size can be varied.</p>
+<p><strong>Example:</strong>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram for Maximum Daily Temperature </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(airquality) </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(airquality<span class="sc">$</span>Temp, <span class="at">main =</span><span class="st">"La Guardia Airport's\ </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">Maximum Temperature(Daily)"</span>, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab =</span><span class="st">"Temperature(Fahrenheit)"</span>, </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">125</span>), <span class="at">col =</span><span class="st">"yellow"</span>, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">freq =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Assignment_1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="hypothesis-testing-in-r-programming" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing-in-r-programming">1.4.2 Hypothesis Testing in R Programming</h2>
+<p>hypothesis is made by the researchers about the data collected for any experiment or data set. A hypothesis is an assumption made by the researchers that are not mandatory true. In simple words, a hypothesis is a decision taken by the researchers based on the data of the population collected. <a href="https://www.geeksforgeeks.org/understanding-hypothesis-testing/"><strong>Hypothesis Testing</strong></a> in <a href="https://www.geeksforgeeks.org/introduction-to-r-programming-language/"><strong>R Programming</strong></a> is a process of testing the hypothesis made by the researcher or to validate the hypothesis. To perform hypothesis testing, a random sample of data from the population is taken and testing is performed. Based on the results of the testing, the hypothesis is either selected or rejected. This concept is known as <strong>Statistical Inference</strong>. In this article, we’ll discuss the four-step process of hypothesis testing, One sample T-Testing, Two-sample T-Testing, Directional Hypothesis, one sample&nbsp;<img src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-be5d4c2c19a6cdf008a0e995c1d7a684_l3.svg" title="Rendered by QuickLaTeX.com" class="img-fluid" alt="\mu ">-test, two samples&nbsp;<img src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-be5d4c2c19a6cdf008a0e995c1d7a684_l3.svg" title="Rendered by QuickLaTeX.com" class="img-fluid" alt="\mu ">-test and correlation test in R programming.</p>
+<section id="one-sample-t-testing" class="level4">
+<h4 class="anchored" data-anchor-id="one-sample-t-testing">One Sample T-Testing</h4>
+<p>One sample T-Testing approach collects a huge amount of data and tests it on random samples. To perform T-Test in R, normally distributed data is required. This test is used to test the mean of the sample with the population. For example, the height of persons living in an area is different or identical to other persons living in other areas.</p>
+<blockquote class="blockquote">
+<p><strong>Syntax:</strong> t.test(x, mu) <strong>Parameters:</strong> <strong>x:</strong> represents numeric vector of data <strong>mu:</strong> represents true value of the mean</p>
+</blockquote>
+<p>To know about more optional parameters of <strong>t.test()</strong>, try the below command:</p>
+<pre><code>help("t.test")</code></pre>
+<p><strong>Example:</strong>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining sample vector</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># One Sample T-Test</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x, <span class="at">mu =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  x
+t = -51.893, df = 99, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 5
+95 percent confidence interval:
+ -0.2866530  0.1027426
+sample estimates:
+  mean of x 
+-0.09195518 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="reading-a-.csv-file-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="reading-a-.csv-file-in-r">1.4.3 Reading a .csv File in R</h2>
+<p><strong>read.csv()</strong>: read.csv() is used for reading “comma separated value” files (“.csv”). In this also the data will be imported as a data frame.</p>
+<blockquote class="blockquote">
+<p><strong>Syntax:</strong> read.csv(file, header = TRUE, sep = “,”, dec = “.”, …)</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><p>file: the path to the file containing the data to be imported into R.</p></li>
+<li><p>header: logical value. If TRUE, read.csv() assumes that your file has a header row, so row 1 is the name of each column. If that’s not the case, you can add the argument header = FALSE.</p></li>
+<li><p>sep: the field separator character</p></li>
+<li><p>dec: the character used in the file for decimal points.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Using read.csv()</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>myData <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"/Users/gozde.ugur/Downloads/movies.csv"</span>) </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show only first 5 record</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>comedy_filmler <span class="ot">&lt;-</span> myData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Genre <span class="sc">==</span> <span class="st">"Comedy"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>ilk_5_kayit <span class="ot">&lt;-</span> <span class="fu">head</span>(comedy_filmler, <span class="dv">5</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Show only selected columns</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>secilen_sutunlar <span class="ot">&lt;-</span> ilk_5_kayit[, <span class="fu">c</span>(<span class="st">"Film"</span>, <span class="st">"Genre"</span>, <span class="st">"Year"</span>)]</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(secilen_sutunlar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Film  Genre Year
+1                    Youth in Revolt Comedy 2010
+2 You Will Meet a Tall Dark Stranger Comedy 2010
+3                       When in Rome Comedy 2010
+4              What Happens in Vegas Comedy 2008
+5                    Valentine's Day Comedy 2010</code></pre>
+</div>
+</div></li>
+</ul>
+</blockquote>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
